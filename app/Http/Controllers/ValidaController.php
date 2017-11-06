@@ -2,9 +2,10 @@
 
 namespace Arvore\Http\Controllers;
 
+use Arvore\Valida;
 use Illuminate\Http\Request;
 
-class SociedadeController extends Controller
+class ValidaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +15,9 @@ class SociedadeController extends Controller
     public function index()
     {
         //
+        $grupos = Valida::orderBy('id', 'grupo_nome')->paginate(10);
+        
+        return view('valida.index',['grupos' => $grupos]);
     }
 
     /**
@@ -34,51 +38,64 @@ class SociedadeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \Arvore\Valida  $valida
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Valida $valida)
     {
-        //
+        return "alisson testando o show";
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \Arvore\Valida  $valida
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Valida $valida)
     {
         //
+        return "Alisson testando o edit";
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Arvore\Valida  $valida
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Valida $valida)
     {
-        //
+    
+
+        $valida->grupo_ok    = "S";
+
+        $valida->save();
+        return redirect()->route('valida.index')->with('message', 'Product updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \Arvore\Valida  $valida
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Valida $valida)
     {
         //
     }
+
+        protected function methodNotAllowed(array $others)
+    {
+        throw new MethodNotAllowedHttpException($others);
+    }
 }
+

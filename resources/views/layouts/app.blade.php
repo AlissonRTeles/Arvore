@@ -63,6 +63,16 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
+
+                                    <li>
+                                        <a href="{{ route('sociedade') }}">
+                                            Cadastrar Sociedade
+                                        </a>
+
+        
+                                    </li>
+
                                 </ul>
                             </li>
                         @endguest

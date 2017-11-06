@@ -79,12 +79,16 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    A Árvore Teste
+                    <img src="{{ asset('img/banner.jpg')}}" width="300" >
                 </div>
-                
             </div>
         </div>
 
-
+        <!-- area do footer -->
+        <footer class="footer-basic-centered">
+            <center>
+                <p class="footer-company-name">Osmose &copy; 2017</p>
+            </center>
+        </footer>
     </body>
 </html>

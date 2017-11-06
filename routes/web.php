@@ -19,5 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// -- cadastro de sociedade
-Route::get('/sociedade', 'SociedadeController@index');
+// desen
+Route::resource('/grupo','GrupoController',  ['names' => ['create' => 'sociedade']])->middleware('auth');
+
+Route::resource('/valida','ValidaController');
