@@ -69,7 +69,9 @@
                                         <a href="{{ route('sociedade') }}">
                                             Cadastrar Sociedade
                                         </a>
-
+                                        <a href="{{ route('tarefa') }}">
+                                            Cadastrar Tarefa
+                                        </a>
         
                                     </li>
 
@@ -84,7 +86,14 @@
         @yield('content')
     </div>
 
+    <!-- area do footer -->
+    <footer class="footer-basic-centered">
+        <center>
+            <p class="footer-company-name">Osmose &copy; 2017</p>
+        </center>
+    </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>

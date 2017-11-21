@@ -74,11 +74,21 @@ class ValidaController extends Controller
      */
     public function update(Request $request, Valida $valida)
     {
-    
 
-        $valida->grupo_ok    = "S";
+        $aprovado_botao = $request->get('aprovar');
 
-        $valida->save();
+        $reprovado_botao = $request->get('reprovar');
+
+        if(isset($aprovado_botao)){ 
+            $valida->grupo_ok    = "S";
+            $valida->save();        
+        }
+        
+        if(isset($reprovado_botao)){ 
+            $valida->grupo_ok    = "N";   
+            $valida->save();        
+        }
+        
         return redirect()->route('valida.index')->with('message', 'Product updated successfully!');
     }
 

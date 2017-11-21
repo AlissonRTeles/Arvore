@@ -40,9 +40,9 @@ class GrupoController extends Controller
     public function store(Request $request)
     {
         $grupo = new Grupo;
-        $grupo->grupo_nome = $request->input('name');
+        $grupo->grupo_nome    = $request->input('name');
         $grupo->grupo_membros = $request->input('membros');
-        $grupo->grupo_ok = 'N';
+        $grupo->grupo_ok      = 'N';
         $grupo->save();
         return redirect()->route('grupo.index')->with('message', 'Grupo salvo com sucesso!!');
     }

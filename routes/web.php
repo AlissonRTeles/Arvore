@@ -19,7 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// desen
+//-- cadastro de grupos
 Route::resource('/grupo','GrupoController',  ['names' => ['create' => 'sociedade']])->middleware('auth');
+
+//-- cadastro de novas tarefas
+Route::resource('/tarefa','TarefaController',  ['names' => ['create' => 'tarefa']]);
+
+Route::resource('/fases','FaseController',  ['names' => ['create' => 'fases'] ] );
+
+Route::resource('/fases/upload','FaseController@upload');
 
 Route::resource('/valida','ValidaController');
